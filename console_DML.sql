@@ -50,31 +50,66 @@ INSERT INTO studio (studio_id, studio_nm, studio_country_code)
 INSERT INTO studio (studio_id, studio_nm, studio_country_code)
   VALUES ('ABA', 'A Band Apart', 'USA');
 -- movie
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('GDF', 'The Godfather', '121', 'English', '1972-03-14', 'PRM');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('DFB', 'Da 5 Blood', '100', 'English', '2020-06-12', 'FOA');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('SRH', 'Sherlock Holmes', '120', 'English', '2009-12-25', 'VRP');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('MTR', 'The Matrix', '114', 'English', '1999-03-31', 'WNB');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('LTR', 'Lord of The Rings', '178', 'English', '2001-12-21', 'NWC');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('CLO', 'A Clockwork Orange', '113', 'English', '1971-12-19', 'WNB');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('SHN', 'The Shining', '144', 'English', '1980-05-23', 'TPC');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('INO', 'Inside Out', '95', 'English', '2015-05-18', 'PXR');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('JWS', 'Jaws', '124', 'English', '1975-06-20', 'UNP');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('PUF', 'Pulp Fiction', '154', 'English', '1994-05-21', 'ABA');
-INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date, mov_studio)
-  VALUES ('KIB', 'Kill Bill', '111', 'English', '2003-10-10', 'ABA');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('GDF', 'The Godfather', '121', 'English', '1972-03-14');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date )
+  VALUES ('DFB', 'Da 5 Blood', '100', 'English', '2020-06-12');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('SRH', 'Sherlock Holmes', '120', 'English', '2009-12-25');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('MTR', 'The Matrix', '114', 'English', '1999-03-31');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('LTR', 'Lord of The Rings', '178', 'English', '2001-12-21');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('CLO', 'A Clockwork Orange', '113', 'English', '1971-12-19');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('SHN', 'The Shining', '144', 'English', '1980-05-23');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('INO', 'Inside Out', '95', 'English', '2015-05-18');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('JWS', 'Jaws', '124', 'English', '1975-06-20');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('PUF', 'Pulp Fiction', '154', 'English', '1994-05-21');
+INSERT INTO movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+  VALUES ('KIB', 'Kill Bill', '111', 'English', '2003-10-10');
 
 --
+DELETE
+FROM public.country
+WHERE country_code LIKE 'VIE  ' ESCAPE '#';
 
+INSERT INTO public.actor (act_id, act_fname, act_lname, act_gender)
+VALUES (30875, 'Orlando ', 'Bloom', 'M');
+
+INSERT INTO public.country (country_code, country_name)
+VALUES ('VIE', 'Vietnam');
+
+INSERT INTO public.director (dir_id, dir_fname, dir_lname, dir_country_code)
+VALUES ('QUT', 'Quentin', 'Tarantino', 'USA');
+
+INSERT INTO public.genres (gen_id, gen_nm)
+VALUES ('DET', 'Detective');
+
+INSERT INTO public.movie (mov_id, mov_title, mov_time, mov_lang, mov_rls_date)
+VALUES ('KIB  ', 'Kill Bill', 111, 'English', '2003-10-10');
+
+INSERT INTO public.movie_cast (act_id, mov_id, role)
+VALUES (33037, 'GDF', 'Vito Corleone');
+
+INSERT INTO public.movie_direction (dir_id, mov_id)
+VALUES ('QUT', 'KIB');
+
+INSERT INTO public.movie_genres (mov_id, gen_id)
+VALUES ('KIB', 'DRM');
+
+INSERT INTO public.movie_studio (studio_id, mov_id)
+VALUES ('ABA', 'KIB');
+
+INSERT INTO public.rating (mov_id, rating_kinopoisk, rating_imdb)
+VALUES ('KIB  ', 7.6, 8.1);
+
+INSERT INTO public.studio (studio_id, studio_nm, studio_country_code)
+VALUES ('ABA', 'A Band Apart', 'USA');
 
 
 
